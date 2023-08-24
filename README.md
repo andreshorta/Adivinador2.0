@@ -1,6 +1,7 @@
 <h1 align="center">Adivinador2.0</h1>
 <h3 align="center">JavaScript, HTML y CSS</h3>
 
+<h3 align="left"> Jugar: https://andreshorta.github.io/Adivinador2.0</h3> 
 Este proyecto es un juego que está en dos repositorios diferentes, este se desarrolló con JavaScript, HTML y CSS, mientras que el otro repositorio está desarrollado con JAVA: https://github.com/andreshorta/JavaAdivinador2.0
 
 <h3 align="left"> Descripción del juego: </h3> 
