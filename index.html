@@ -4,68 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Adivinador 2.0</title>
-    <style>
-      body {
-        font-family: "Courier New", monospace;
-        background-color: #333;
-        color: #fff;
-        text-align: center;
-        margin: 0;
-        padding: 0;
-      }
-
-      .container {
-        max-width: 600px;
-        margin: 0 auto;
-        padding: 20px;
-        background-color: #444;
-        border-radius: 10px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-      }
-
-      input {
-        padding: 5px;
-        font-size: 16px;
-      }
-
-      #output {
-        background-color: #222;
-        padding: 10px;
-        margin: 10px 0;
-        border-radius: 5px;
-        white-space: pre-wrap;
-        line-height: 1.4;
-        font-family: "Courier New", monospace;
-      }
-
-      button {
-        background-color: #007bff;
-        color: #fff;
-        border: none;
-        padding: 10px 20px;
-        font-size: 16px;
-        cursor: pointer;
-        border-radius: 5px;
-      }
-
-      .win {
-        color: #00ff00;
-      }
-
-      .lose {
-        color: #ff0000;
-      }
-
-      .blue {
-        color: #007bff; /* Color azul */
-      }
-    </style>
+    <link rel="stylesheet" href="resources/css/styles.css"/>
   </head>
   <body>
     <div class="container">
       <h1>Adivinador 2.0</h1>
-      <p id="instructions">Dispones de 10 intentos para adivinar.</p>
-      <p>Rango de valores: 1 a 1000 inclusive.</p>
+      <p id="instructions">Tienes 10 intentos para adivinar un número en el rango de 1 a 1000.</p>
       <div id="output"></div>
       <div id="attemptsCounter" class="win">Próximo intento 1</div>
       <!-- Cambiamos el mensaje inicial -->
@@ -73,96 +17,16 @@
       <button id="submit">Intentar</button>
       <button id="retry" style="display: none">Intentar de nuevo</button>
     </div>
-
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        const outputElement = document.getElementById("output");
-        const guessInput = document.getElementById("guess");
-        const submitButton = document.getElementById("submit");
-        const retryButton = document.getElementById("retry");
-        const instructionsElement = document.getElementById("instructions");
-        const attemptsCounterElement =
-          document.getElementById("attemptsCounter"); // Elemento del contador de intentos
-
-        const maxAttempts = 10;
-        let secretNumber;
-        let attemptsLeft;
-        let currentAttempt = 1;
-        let outputText = "";
-
-        function startGame() {
-          secretNumber = Math.floor(Math.random() * 1000) + 1;
-          attemptsLeft = maxAttempts;
-          currentAttempt = 1;
-          outputText = "";
-          updateOutput();
-          guessInput.value = "";
-          guessInput.disabled = false;
-          submitButton.disabled = false;
-          retryButton.style.display = "none";
-          //instructionsElement.textContent = `Dispones de ${maxAttempts} intentos para adivinar.`;
-          attemptsCounterElement.textContent = `Próximo intento ${currentAttempt}`; // Cambiamos el mensaje inicial
-        }
-
-        function updateOutput() {
-          outputElement.innerHTML = outputText;
-        }
-
-        startGame();
-
-        submitButton.addEventListener("click", makeGuess);
-        guessInput.addEventListener("keyup", function (event) {
-          if (event.key === "Enter") {
-            makeGuess();
-          }
-        });
-
-        retryButton.addEventListener("click", startGame);
-
-        function makeGuess() {
-          const userGuess = parseInt(guessInput.value);
-          console.log(secretNumber);
-          if (userGuess || userGuess === 0) {
-            if (attemptsLeft > 0) {
-              attemptsLeft--;
-              guessInput.value = "";
-              const attemptMessage = `${currentAttempt}: <span class='blue'>${userGuess}</span>.`;
-
-              if (attemptsLeft > 0) {
-                if (userGuess < secretNumber) {
-                  outputText += `Intento ${attemptMessage} El número a adivinar es Mayor.<br>`;
-                } else if (userGuess > secretNumber) {
-                  outputText += `Intento ${attemptMessage} El número a adivinar es Menor.<br>`;
-                }
-              }
-
-              if (userGuess === secretNumber) {
-                outputText += `<span class="win">¡¡¡GANASTE!!!</span> El número <span class='blue'>${secretNumber}</span> es correcto<br>`;
-                guessInput.disabled = true;
-                submitButton.disabled = true;
-                retryButton.style.display = "block";
-              }
-
-              if (attemptsLeft === 0 && userGuess !== secretNumber) {
-                outputText += `Intento ${attemptMessage}<br><span class="lose">¡¡¡PERDISTE!!!</span> El número secreto era <span class='blue'>${secretNumber}</span><br>`;
-                guessInput.disabled = true;
-                submitButton.disabled = true;
-                retryButton.style.display = "block";
-              }
-
-              currentAttempt++;
-              updateOutput();
-              if (currentAttempt <= maxAttempts) {
-                attemptsCounterElement.textContent = `Próximo intento ${currentAttempt}`; // Actualizamos el contador de intentos
-              } else {
-                attemptsCounterElement.textContent = `No hay mas intentos.`; // Actualizamos el contador de intentos
-              }
-            }
-          } else {
-            guessInput.value = "Ingresa un número";
-          }
-        }
-      });
-    </script>
+    <div class="container2">
+      <p>
+        Este proyecto es un juego que se desarrolló con JavaScript, HTML y CSS, también hay otra versión que se desarrollado con JAVA:
+        <a href="https://github.com/andreshorta/JavaAdivinador2.0" class="win">Repositorio</a>
+      </p>
+      <h3>Descripción del juego:</h3>
+      <p>
+        El juego genera un número aleatorio entre 1 y 1000, brindando a los jugadores 10 intentos para adivinar. Proporciona pistas sobre si el número es mayor o menor y muestra mensajes de victoria o derrota según el resultado.
+      </p>
+    </div>
+    <script src="js/script.js"></script></script>
   </body>
 </html>

@@ -1,0 +1,60 @@
+body {
+  font-family: "Courier New", monospace;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 650px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #444;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+.container2 {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: justify;
+}
+
+input {
+  padding: 5px;
+  font-size: 16px;
+}
+
+#output {
+  background-color: #222;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 5px;
+  white-space: pre-wrap;
+  line-height: 1.4;
+  font-family: "Courier New", monospace;
+}
+
+button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.win {
+  color: #00ff00;
+}
+
+.lose {
+  color: #ff0000;
+}
+
+.blue {
+  color: #007bff; /* Color azul */
+}
